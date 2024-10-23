@@ -218,7 +218,7 @@ if st.session_state.running:
                     st.subheader(f"Potability Prediction: {prediction:.2f}")
 
                     # Handle prediction and failure scenarios
-                    if prediction ==1:  # Threshold for non-potable water
+                    if prediction > 0.95:  # Threshold for non-potable water
                         st.session_state.failure_counter += 1
                         st.warning(f"Alert: Water is NOT potable! (Prediction: {prediction:.2f})")
                         st.error("Notification for device 0001 is delivered to mkservices12@gmail.com")
