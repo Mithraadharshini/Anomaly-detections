@@ -150,8 +150,6 @@ def predict_potability(data, model):
     # Ensure no negative values
     prediction = np.clip(prediction, 0, None)
     
-    # Debugging: print raw predictions
-    st.write(f"Raw prediction: {prediction}")
 
     # Return the raw predicted value
     return prediction[0][0]
