@@ -213,12 +213,12 @@ if st.session_state.running:
                 prediction = predict_potability(data, lstm_model)
                 
                 if prediction is not None:
-                    st.subheader(f"Potability Prediction: {prediction:.2f}")
+                    st.subheader(f"Potability Prediction:")
 
                     # Handle prediction and failure scenarios
                     if prediction > 0.95:  # Threshold for non-potable water
                         st.session_state.failure_counter += 1
-                        st.warning(f"Alert: Water is NOT potable! (Prediction: {prediction:.2f})")
+                        st.warning(f"Alert: Water is NOT potable!")
                         st.error("Notification for device 0001 is delivered to mkservices12@gmail.com")
 
                         # Display features responsible for failure
@@ -229,7 +229,7 @@ if st.session_state.running:
                     else:  # Potable
                         if st.session_state.failure_counter > 0:
                             st.session_state.failure_counter = 0  # Reset counter
-                        st.success(f"Water is potable. (Prediction: {prediction:.2f})")
+                        st.success(f"Water is potable.")
 
                     # Add the latest prediction to the prediction history
                     st.session_state.prediction_history.append({
